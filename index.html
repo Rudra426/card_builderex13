@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+body{
+    background-color: rgb(46, 24, 24);
+}
+        .inp {
+        
+            margin-left: 30%;
+            display: inline-block;
+            padding: 10px;
+            position: sticky;
+            top: 10px;
+            border-radius: 10px;
+            color: rgb(217, 221, 186);
+            background-color: rgb(64, 18, 12);
+            width: auto;
+            height: 300px;
+        }
+
+        input {
+            
+            color: brown;
+            background-color: bisque;
+            border: transparent;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 2px;
+          
+
+        }
+
+        button {
+            font-size: 15px;
+            padding: 4px;
+            color: rgb(217, 221, 186);
+            background-color: rgb(106, 9, 9);
+            border: transparent;
+            border-radius: 5px;
+            transition-duration: 1s;
+        }
+        button:hover{
+            color: brown ;
+            background-color: rgb(217, 221, 186);
+            transition-duration: 1s;
+        }
+
+        .box {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 110px;
+            margin: 20px;
+            width: 600px;
+            background-color: rgb(183, 56, 56);
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 200px 400px;
+            grid-template-rows: 55px 55px;
+            gap: 0px;
+            grid-template-areas: "tn ta1 ta1"
+                "tn ta2 ta2";
+
+        }
+
+        .img {
+            border-radius: 10px;
+            margin: 5px;
+            height: 100px;
+            width: 190px;
+            /* border: 2px solid black; */
+
+        }
+
+        .ta1 {
+            grid-area: ta1;
+
+        }
+
+        .ta2 {
+            display: flex;
+            
+            align-items: flex-start;
+        }
+
+        .title {
+            font-weight: bold;
+            grid-area: ta1;
+            margin: 4px;
+            padding: 3px;
+
+        }
+
+        .cname {
+            grid-area: ta2;
+            padding: 2px;
+            margin: 2px;
+
+        }
+
+        .views {
+            grid-area: ta2;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        .upd {
+            grid-area: ta2;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        .time {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            height: 20px;
+            width: auto;
+            overflow: hidden;
+            text-align: center;
+            justify-content: center;
+            color: white;
+            background-color: black;
+            border-radius: 10px;
+            grid-area: a4;
+
+        }
+
+        .tn {
+            display: grid;
+            grid-template-columns: 120px 70px;
+            grid-template-rows: 80px 30px;
+
+            grid-template-areas: "a1 a2"
+                "a3 a4";
+            grid-area: tn;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inp">
+        <form action="">
+            <label for="title">Title :</label>
+            <input type="text" id="title" placeholder="Title" required><br>
+            <label for="cname">Channel Name :</label>
+            <input type="text" id="cname" placeholder="Channel Name" required><br>
+            <label for="views">Views :</label>
+            <input type="number" id="views" placeholder="views" required><br>
+            <label for="upd">Uploaded Month :</label>
+            <input type="number" id="upd" placeholder="_ months ago" required><br>
+            <label for="time">Duration :</label>
+            <input type="text" id="time" placeholder="HH:MM:SS" required><br>
+            <label for="img">Thumbhnail link :</label>
+            <input type="text" name="" id="img" placeholder="Thambnail Link" required><br>
+            <label for="clr">Text Color</label>
+            <input type="color" name="" id="clr" required><br>
+            <label for="bgclr">Background color</label>
+            <input type="color" name="" id="bgclr" required><br>
+            <button onclick="validate()">Create</button>
+        </form>
+    </div>
+
+    <div id="main">
+
+        <div class="box">
+            <div class="tn">
+                <img src="https://imgs.search.brave.com/0LfNCpWYTGgzXpXE3zG9OTI7HxQkseo5GCy4F1re86k/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zcC1h/by5zaG9ydHBpeGVs/LmFpL2NsaWVudC90/b193ZWJwLHFfZ2xv/c3N5LHJldF9pbWcs/d18yNDAwLGhfMTI1/Ni9odHRwczovL2Js/b2cuc25hcHBhLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/My8wMS9ZVC1UaHVt/Ym5haWwtQmxvZy1Q/b3N0LmpwZw"
+                    alt="Thumbnail" class="img">
+                <div class="time">Duration</div>
+            </div>
+            <div class="ta1">
+                <div class="title">Title</div>
+            </div>
+            <div class="ta2">
+                <div class="cname">• Channel name</div>
+                <div class="views">• Views</div>
+                <div class="upd">• x Months ago</div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- <div class="box"> sample Card
+            <img src="" alt="">
+            <div class="title">Title</div>
+            <div class="cname">Channel name</div>
+            <div class="views">Views</div>
+            <div class="upd"Uploaded></div>
+            <div class="time">Duration</div>
+        </div>
+        <div class="box"> sample Card
+            <img src="" alt="">
+            <div class="title">Title</div>
+            <div class="cname">Channel name</div>
+            <div class="views">Views</div>
+            <div class="upd"Uploaded></div>
+            <div class="time">Duration</div>
+        </div> -->
+
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
