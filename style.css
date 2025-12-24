@@ -1,18 +1,34 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Page */
+
 body {
   background-color: #0f172a;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #e5e7eb;
 }
 
-/* Input panel (your existing form box) */
+.site-header {
+  text-align: center;
+  padding: 24px 16px 8px 16px;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 6px;
+}
+
+.site-subtitle {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
 .inp {
   margin: 24px auto 16px auto;
   display: block;
@@ -67,7 +83,7 @@ button:hover {
   transform: translateY(-1px);
 }
 
-/* Cards container */
+
 #main {
   width: 90%;
   max-width: 700px;
@@ -77,13 +93,13 @@ button:hover {
   align-items: center;
 }
 
-/* Card container */
+
 .box {
   width: 100%;
   max-width: 520px;
   margin: 16px 0;
-  background-color: #0b1120;  /* overridden by bg color input */
-  color: #e5e7eb;             /* overridden by text color input */
+  background-color: #0b1120;  
+  color: #e5e7eb;             
   border-radius: 12px;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
   padding: 14px 16px;
@@ -96,9 +112,17 @@ button:hover {
     "tn ta2";
   column-gap: 14px;
   align-items: center;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+
+.box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* Left: avatar only */
+}
+
 .tn {
   grid-area: tn;
   display: flex;
@@ -106,7 +130,7 @@ button:hover {
   justify-content: center;
 }
 
-/* Round image */
+
 .img {
   width: 88px;
   height: 88px;
@@ -115,7 +139,7 @@ button:hover {
   border: 2px solid rgba(148, 163, 184, 0.9);
 }
 
-/* Right top: name + email */
+
 .ta1 {
   grid-area: ta1;
   margin-bottom: 4px;
@@ -134,7 +158,7 @@ button:hover {
   margin-bottom: 6px;
 }
 
-/* Right bottom: role + org */
+
 .ta2 {
   grid-area: ta2;
   display: flex;
@@ -152,7 +176,32 @@ button:hover {
   color: #cbd5f5;
 }
 
-/* Mobile: stack vertically */
+.download-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: #f9fafb;
+  align-self: flex-start;
+}
+
+.download-btn:hover {
+  background-color: #1d4ed8;
+}
+
+
+
+.site-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  padding: 12px 0 20px 0;
+}
+
+
 @media (max-width: 600px) {
   .box {
     grid-template-columns: 1fr;

@@ -66,7 +66,7 @@ function card() {
 
     let v4 = document.getElementById("email").value
     let nextemail = document.createElement("div")
-    nextemail.href = `mailto:${v4}`;
+    
     nextemail.className = "email"
     nextemail.innerHTML = v4
     ta1.appendChild(nextemail)
@@ -76,6 +76,21 @@ function card() {
     nextimg.className = "img"
     nextimg.src = v5
     tn.appendChild(nextimg)
+
+    let downloadBtn = document.createElement("button");
+downloadBtn.textContent = "Download Card";
+downloadBtn.className = "download-btn";
+next.appendChild(downloadBtn);
+
+downloadBtn.addEventListener("click", function () {
+  html2canvas(next).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "profile-card.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+});
+
 
 
     document.getElementById("name").value = ""
