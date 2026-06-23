@@ -10,7 +10,7 @@ function validate() {
     let v2 = document.getElementById("role").value.trim()
     let v3 = document.getElementById("org").value.trim()
     let v4 = document.getElementById("email").value.trim()
-    let v5 = document.getElementById("img").value.trim()
+    let v5 = document.getElementById("img").files[0];
     let clr = document.getElementById("clr").value.trim()
     let bgclr = document.getElementById("bgclr").value.trim()
     if (!v1 || !v2 || !v3 || !v4 || !v5) {
@@ -20,12 +20,12 @@ function validate() {
         alert("Text colour and Background colour can't be same")
     }
     else {
-        card()
+        card(v5);
     }
 }
 
 
-function card() {
+function card(file) {
     let main = document.getElementById("main")
     let next = document.createElement("div")
     next.className = "box"
@@ -71,19 +71,26 @@ function card() {
     nextemail.innerHTML = v4
     ta1.appendChild(nextemail)
 
-    let v5 = document.getElementById("img").value
-    let nextimg = document.createElement("img")
-    nextimg.className = "img"
-    nextimg.src = v5
-    tn.appendChild(nextimg)
+    let nextimg = document.createElement("img");
+    nextimg.className = "img";
+    tn.appendChild(nextimg);
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        nextimg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
 
     let downloadBtn = document.createElement("button");
 downloadBtn.textContent = "Download Card";
 downloadBtn.className = "download-btn";
-next.appendChild(downloadBtn);
+main.appendChild(downloadBtn);
 
 downloadBtn.addEventListener("click", function () {
-  html2canvas(next).then(canvas => {
+  html2canvas(next,{
+    backgroundColor: null,
+    scale: 2
+  }).then(canvas => {
     const link = document.createElement("a");
     link.download = "profile-card.png";
     link.href = canvas.toDataURL("image/png");
